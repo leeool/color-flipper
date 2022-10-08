@@ -3,6 +3,7 @@
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .box{
@@ -26,6 +27,7 @@
   place-items: center;
   border-radius: 4px;
   border: 1px solid black;
+  position: relative;
 }
 
 h1{
@@ -46,10 +48,75 @@ button{
 
 .hide-box{
   font-size: 1.3rem;
-  display: block;
+  display: inline;
   padding: 10px;
   opacity: .5;
   -webkit-text-stroke: .3px;
   -webkit-text-stroke-color: white;
   cursor: pointer;
+}
+
+.info{
+  display: flex;
+  background-color: #111;
+  width: 100%;
+  height: 75px;
+  color: white;
+  justify-content: space-between;
+  padding: 30px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: absolute;
+  transition: .3s;
+  top: 0;
+  align-items: center;
+}
+
+.info a {
+  position: relative;
+}
+
+.info a::before {
+  content: "";
+  position: absolute;
+  background: url(github-svgrepo-com.svg) no-repeat;
+  width: 18px;
+  height: 18px;
+  background-size: 100%;
+  filter: invert();
+  left: -22px;
+  bottom: 2px;
+  z-index: 0;
+}
+
+.info::before{
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 90px;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+  background-color: #111;
+  top: -15px;
+  z-index: -2;
+}
+
+.info:hover{
+  top: -70px;
+}
+
+a{
+  color: white;
+}
+
+
+@media(width <= 400px){
+  .content{
+    width: 300px;
+    height: 150px;
+  }
+
+  .box{
+    gap: 25px;
+  }
 }

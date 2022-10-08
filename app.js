@@ -3,8 +3,9 @@ const allBox = document.querySelector(".box")
 const button = document.querySelector("button")
 const body = document.body
 const hideBox = document.querySelector(".hide-box")
+const counter = document.querySelector(".times-changed")
 
-let randomColor = Math.floor(Math.random(1)*16777215).toString(16);
+const randomColor = Math.floor(Math.random(1)*16777215).toString(16);
 
 const randomColorHex = () => {
   const hexCode = (Math.random() * 0xfffff * 1000000).toString(16)
@@ -13,20 +14,20 @@ const randomColorHex = () => {
 
 button.addEventListener("click", () => {
   h1.textContent = randomColorHex()
-
   body.style.backgroundColor = randomColorHex()
+  counter.textContent++
 })
 
-
 hideBox.addEventListener("click", () => {
-  if(allBox.style.display === "flex"){
-    allBox.style.display = "none"
-    hideBox.textContent = "show"
-  } else{
+  let boxDisplay = allBox.style.display
+  
+  if(boxDisplay === "none"){
     allBox.style.display = "flex"
     hideBox.textContent = "hide"
-
+    return
   }
 
+  allBox.style.display = "none"
+  hideBox.textContent = "show"
 })
 
